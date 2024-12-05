@@ -33,7 +33,7 @@ class Customer:
         return distance
 
     def buy_product(self, product_price: float) -> None:
-        if self.money >  product_price:
+        if self.money > product_price:
             self.money -= product_price
 
     def spend_money_in_shops(self, money: float, shop: str) -> None:
