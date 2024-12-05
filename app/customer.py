@@ -4,7 +4,7 @@ from app.car import Car
 class Customer:
     def __init__(self,
                  name: str,
-                 product_cart: dict[str:int],
+                 product_cart: dict[str, int],
                  location: list[int],
                  money: int,
                  car: Car) -> None:
@@ -16,7 +16,7 @@ class Customer:
         self.car = car
 
         self.__home_location = location
-        self.__money_to_spend_in_shop: dict[str:float] = {}
+        self.__money_to_spend_in_shop: dict[str, float] = {}
 
     def __repr__(self) -> str:
         return f"{self.name}"
@@ -33,7 +33,8 @@ class Customer:
         return distance
 
     def buy_product(self, product_price: float) -> None:
-        self.money -= product_price
+        if self.money >  product_price:
+            self.money -= product_price
 
     def spend_money_in_shops(self, money: float, shop: str) -> None:
         self.__money_to_spend_in_shop[shop] = money

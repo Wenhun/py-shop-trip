@@ -9,9 +9,6 @@ class Car:
 
     def calculate_fuel_cost(self,
                             distance: float) -> float:
-        if self.__fuel_cost == 0.0:
-            raise RuntimeError("The cost of fuel is not determined")
-
         return (self.__fuel_consumption * distance / 100) * self.__fuel_cost
 
     @classmethod

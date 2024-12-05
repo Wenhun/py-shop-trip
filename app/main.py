@@ -1,3 +1,5 @@
+import os
+
 import json
 
 from app.car import Car
@@ -9,11 +11,13 @@ def shop_trip() -> None:
     customers: list[Customer] = []
     shops: list[Shop] = []
 
-    cost_go_to_shop: dict[Customer:dict[Shop:float]] = {}
+    cost_go_to_shop: dict[Customer, dict] = {}
 
     def open_file() -> None:
-        path = "C:\\Mate-Phyton-Projects\\py-shop-trip\\app\\config.json"
-        with open(path) as file:
+        current_dir = os.path.dirname(__file__)
+        file_path = os.path.join(current_dir, 'config.json')
+
+        with open(file_path) as file:
             information = json.load(file)
 
         Car.set_fuel_cost(information["FUEL_PRICE"])
