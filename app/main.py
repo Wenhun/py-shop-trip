@@ -15,7 +15,7 @@ def shop_trip() -> None:
 
     def open_file() -> None:
         current_dir = os.path.dirname(__file__)
-        file_path = os.path.join(current_dir, 'config.json')
+        file_path = os.path.join(current_dir, "config.json")
 
         with open(file_path) as file:
             information = json.load(file)
