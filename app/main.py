@@ -1,5 +1,4 @@
 import json
-import os.path
 
 from app.car import Car
 from app.customer import Customer
@@ -14,7 +13,7 @@ def shop_trip() -> None:
 
     def open_file() -> None:
         path = "C:\\Mate-Phyton-Projects\\py-shop-trip\\app\\config.json"
-        with open(os.path.join(path)) as file:
+        with open(path) as file:
             information = json.load(file)
 
         Car.set_fuel_cost(information["FUEL_PRICE"])
